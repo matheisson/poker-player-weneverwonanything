@@ -35,7 +35,7 @@ class Player:
                     return 50
             if self.suit:
                 return 50
-            return 0
+            return 15
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
                 return 20
