@@ -34,15 +34,12 @@ class Player:
                 self.counter += 1
                 return 10
             return 0
-        if len(self.common_cards) == 3:
-            if (self.suit) and self.hand[0]["suit"] in self.common_cards:
-                return 200
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
                 return 20
         if len(self.common_cards) >= 3:
             if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
-                return 200
+                return self.current_bid - self.bet
             if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
                 if self.hand[0]["rank"] == self.hand[1]["rank"]:
                     return 1000
