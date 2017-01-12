@@ -38,6 +38,9 @@ class Player:
             if len(self.common_cards) == 0:
                 return 20
         if len(self.common_cards) >= 3:
+            flush_checker = self.check_flush()
+            if flush_checker is not False:
+                return flush_checker
             if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
                 return self.current_bid - self.bet
             if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
@@ -54,3 +57,23 @@ class Player:
 
     def showdown(self, game_state):
         pass
+
+    def check_flush(self):
+        flush_counter = 2
+        for i in range(len(self.common_cards)):
+            if self.suit == self.common_cards[i].get("suit"):
+                flush_counter += 1
+        if len(self.common_cards) == 3:
+            if flush_counter == 4:
+                return 50
+            if flush_counter == 5:
+                return 1000
+            if len(self.common_cards) == 4:
+                if flush_counter == 4:
+                    return 50
+                if flush_counter == 5:
+                    return 1000
+            if len(self.common_cards) == 5:
+                if flush_counter == 5:
+                    return 1000
+        return False
