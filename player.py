@@ -30,6 +30,8 @@ class Player:
                 if self.hand[0]["rank"] == self.hand[1]["rank"]:
                     self.counter += 1
                     return self.current_bid - self.bet
+            if self.suit:
+                return 120
             if self.hand[1]["rank"] in self.good_cards:
                 self.counter += 1
                 return self.current_bid - self.bet
