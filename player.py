@@ -9,6 +9,7 @@ class Player:
 
 
     def betRequest(self, gs):
+        print hello
         return 500
 
 
