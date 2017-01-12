@@ -7,7 +7,7 @@ class Player:
     def get_info(self, game_state):
         for player in game_state.players:
             if player.name == self.name:
-                return player.stack
+                return 1000
 
     def betRequest(self, game_state):
         self.stack = self.get_info(game_state)
