@@ -39,6 +39,9 @@ class Player:
                 if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
                     return 10000
                 if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
+                    if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                        return 10000
+                    
                     return 500
             return 0
         return 0
