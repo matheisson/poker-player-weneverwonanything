@@ -3,6 +3,8 @@ import cgi
 import json
 import BaseHTTPServer
 import os
+import logging
+import urllib2
 from player import Player
 
 
