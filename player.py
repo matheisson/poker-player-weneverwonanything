@@ -51,7 +51,7 @@ class Player:
                         if i != j+1:
                             if self.common_cards[i].get("rank") == self.common_cards[j+1].get("rank"):
                                 return 10000
-                    return 300
+                return 100
             return 0
         return 0
 
