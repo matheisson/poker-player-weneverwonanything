@@ -34,10 +34,12 @@ class Player:
             return 0
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
-                return 250
-            if len(self.common_cards) == 3:
-                if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                return 100
+            if len(self.common_cards) >= 3:
+                if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
                     return 10000
+                if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
+                    return 500
             return 0
         return 0
 
