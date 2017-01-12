@@ -9,13 +9,11 @@ class Player:
             if player.name == self.name:
                 return 1000
 
+
     def betRequest(self, gs):
         self.stack = self.get_info(gs)
         return gs.current_buy_in - gs.players[gs.in_action].bet
 
+
     def showdown(self, game_state):
         pass
-
-
-
-
