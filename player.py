@@ -43,17 +43,17 @@ class Player:
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
                 return 100
-            if len(self.common_cards) >= 3:
-                if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
-                    return 300
-                if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
-                    if self.hand[0]["rank"] == self.hand[1]["rank"]:
-                        return 10000
-                    for i in range(len(self.common_cards)) :
-                        for j in range(len(self.common_cards) - 1):
-                            if i != j+1:
-                                if self.common_cards[i].get("rank") == self.common_cards[j+1].get("rank"):
-                                    return 10000
+        if len(self.common_cards) >= 3:
+            if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
+                   return 300
+            if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
+                if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                    return 10000
+                for i in range(len(self.common_cards)):  # drill
+                    for j in range(len(self.common_cards) - 1):
+                        if i != j+1:
+                            if self.common_cards[i].get("rank") == self.common_cards[j+1].get("rank"):
+                                return 10000
                     return 300
             return 0
         return 0
