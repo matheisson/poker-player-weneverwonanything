@@ -5,13 +5,14 @@ class Player:
     stack = 0
 
     def get_info(self, game_state):
-        for player in game_state.players:
-            if player.name == self.name:
-                return 1000
+        current_buy_in = game_state["current_buy_in"]
+        print current_buy_in
 
 
     def betRequest(self, gs):
-        return gs.current_buy_in - gs.players[gs.in_action].[gs.bet]
+        current_buy_in = gs["current_buy_in"]
+        print current_buy_in
+        return gs.current_buy_in - gs.players[gs.in_action]
 
 
     def showdown(self, game_state):
