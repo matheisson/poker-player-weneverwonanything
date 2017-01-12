@@ -32,7 +32,7 @@ class Player:
             if self.hand[0]["rank"] in self.good_cards:
                 if self.hand[0]["rank"] == self.hand[1]["rank"]:
                     self.counter += 1
-                    return 1000
+                    return 200
             return 0
         if len(self.common_cards) == 3:
             if (self.suit) and self.hand[0]["suit"] in self.common_cards:
