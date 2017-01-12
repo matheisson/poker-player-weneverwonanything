@@ -7,7 +7,7 @@ class Player:
     player = True
     bet = 0
     hand = True
-    good_cards = ["10", "J", "Q", "K", "A"]
+    good_cards = ["J", "Q", "K", "A"]
     counter = 0
     common_cards = []
     suit = False
