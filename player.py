@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "work please"
+    VERSION = "We're kicking your ass!"
     name = "weneverwonanything"
     stack = 0
     current_bid = 0
@@ -10,6 +10,7 @@ class Player:
     good_cards = ["10", "J", "Q", "K", "A"]
     counter = 0
     common_cards = []
+    suit = False
 
 
 
