@@ -9,6 +9,7 @@ class Player:
     hand = True
     good_cards = ["10", "J", "Q", "K", "A"]
     counter = 0
+    common_cards = []
 
 
 
@@ -19,6 +20,7 @@ class Player:
         self.stack = self.player.get("stack")
         self.bet = self.player.get("bet")
         self.hand = self.player.get("hole_cards")
+        self.common_cards = gs.get("community_cards")
         pass
 
 
@@ -31,7 +33,12 @@ class Player:
                     return 1000
             return 0
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
-            return 10000
+            if len(self.common_cards) == 0:
+                return 250
+            if len(self.common_cards) == 3:
+                if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                    return 10000
+            return 0
         return 0
 
 
