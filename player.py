@@ -21,6 +21,7 @@ class Player:
         self.bet = self.player.get("bet")
         self.hand = self.player.get("hole_cards")
         self.common_cards = gs.get("community_cards")
+        self.suit = self.hand[0]["suit"] == self.hand[1]["suit"]
         pass
 
 
@@ -32,6 +33,9 @@ class Player:
                     self.counter += 1
                     return 1000
             return 0
+        if len(self.common_cards) == 3:
+            if (self.suit) and self.hand[0]["suit"] in self.common_cards:
+                return 200
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
                 return 100
