@@ -34,6 +34,7 @@ class Player:
                     self.counter += 1
                     return 200
             if self.hand[1]["rank"] in self.good_cards:
+                self.counter += 1
                 return 10
             return 0
         if len(self.common_cards) == 3:
