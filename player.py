@@ -1,6 +1,6 @@
 
 class Player:
-    VERSION = "Default Python rasing player"
+    VERSION = "work please"
     name = "weneverwonanything"
     stack = 0
 
@@ -9,9 +9,9 @@ class Player:
             if player.name == self.name:
                 return 1000
 
-    def betRequest(self, game_state):
+    def betRequest(self, gs):
         self.stack = self.get_info(game_state)
-        return int(self.stack)
+        return gs.current_buy_in - gs.players[gs.in_action][gs.bet]
 
     def showdown(self, game_state):
         pass
