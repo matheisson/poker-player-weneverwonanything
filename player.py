@@ -10,7 +10,7 @@ class Player:
                 return 1000
 
     def betRequest(self, gs):
-        self.stack = self.get_info(game_state)
+        self.stack = self.get_info(gs)
         return 1000
 
     def showdown(self, game_state):
