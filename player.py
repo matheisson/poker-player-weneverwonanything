@@ -7,6 +7,8 @@ class Player:
     player = True
     bet = 0
     hand = True
+    good_cards = ["10", "J", "Q", "K", "A"]
+    counter = 0
 
 
 
@@ -22,9 +24,14 @@ class Player:
 
     def betRequest(self, gs):
         self.get_info(gs)
-        if self.hand[0]["rank"] in ["10", "J", "Q", "K", "A"]:
-            if self.hand[0]["rank"] == self.hand[1]["rank"]:
-                return 1000
+        while(self.counter == 0):
+            if self.hand[0]["rank"] in self.good_cards:
+                if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                    self.counter += 1
+                    return 1000
+            return 0
+        if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
+            return 10000
         return 0
 
 
