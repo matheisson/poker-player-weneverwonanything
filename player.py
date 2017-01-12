@@ -22,8 +22,9 @@ class Player:
 
     def betRequest(self, gs):
         self.get_info(gs)
-        if self.hand[0]["rank"] == self.hand[1]["rank"]:
-            return 1000
+        if self.hand[0]["rank"] in ["10", "J", "Q", "K", "A"]:
+            if self.hand[0]["rank"] == self.hand[1]["rank"]:
+                return 1000
         return 0
 
 
