@@ -11,7 +11,7 @@ class Player:
 
     def betRequest(self, gs):
         self.stack = self.get_info(gs)
-        return 1
+        return gs.current_buy_in - gs.players[gs.in_action].bet
 
     def showdown(self, game_state):
         pass
