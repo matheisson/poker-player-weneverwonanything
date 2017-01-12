@@ -31,6 +31,8 @@ class PlayerService(BaseHTTPServer.BaseHTTPRequestHandler):
 
         action = postvars['action'][0]
 
+        game_state_test = json.loads(postvars['game_state'][0])
+
         if 'game_state' in postvars:
             game_state = json.loads(postvars['game_state'][0])
         else:
@@ -51,6 +53,7 @@ if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
     httpd = server_class((HOST_NAME, PORT_NUMBER), PlayerService)
     print (time.asctime(), "Server Starts - %s:%s" % (HOST_NAME, PORT_NUMBER))
+    print game_state_test
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
