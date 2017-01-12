@@ -12,8 +12,6 @@ class Player:
     common_cards = []
     suit = False
 
-
-
     def get_info(self, gs):
         self.current_bid = gs.get("current_buy_in")
         players = gs.get("players")
@@ -24,7 +22,6 @@ class Player:
         self.common_cards = gs.get("community_cards")
         self.suit = self.hand[0]["suit"] == self.hand[1]["suit"]
         pass
-
 
     def betRequest(self, gs):
         self.get_info(gs)
@@ -42,10 +39,10 @@ class Player:
                 return 200
         if self.hand[0]["rank"] in self.good_cards and self.hand[1]["rank"] in self.good_cards:
             if len(self.common_cards) == 0:
-                return 100
+                return 20
         if len(self.common_cards) >= 3:
             if self.hand[0]["rank"] in self.common_cards.values() and self.hand[1]["rank"] in self.common_cards.values():
-                   return 300
+                return 300
             if self.hand[0]["rank"] in self.common_cards.values() or self.hand[1]["rank"] in self.common_cards.values():
                 if self.hand[0]["rank"] == self.hand[1]["rank"]:
                     return 10000
@@ -57,8 +54,6 @@ class Player:
                     return 300
             return 0
         return 0
-
-
 
     def showdown(self, game_state):
         pass
