@@ -12,7 +12,8 @@ class Player:
     def betRequest(self, gs):
         current_buy_in = gs["current_buy_in"]
         print current_buy_in
-        return gs.current_buy_in - gs.players[gs.in_action].bet
+        gs.current_buy_in - gs.players[gs.in_action].bet
+        return 500
 
 
     def showdown(self, game_state):
